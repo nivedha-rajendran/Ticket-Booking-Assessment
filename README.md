@@ -72,7 +72,7 @@ Payload :  productId : 1
 
 1 .Discount Payload :
 
-   productId=1 & discount=20
+   productId : 1 & discount : 20
 
 2 .Tax Payload :
 
