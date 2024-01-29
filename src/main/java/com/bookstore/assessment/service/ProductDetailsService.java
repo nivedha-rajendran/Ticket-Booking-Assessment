@@ -41,7 +41,7 @@ public class ProductDetailsService {
      * @return The response containing the created product details.
      */
     public CustomApiResponse<ProductDetailDto> createProduct(ProductDetailDto productDetailDto) {
-        try {
+
             Integer productId = generateProductId();
             ProductDetails productDetails = modelMapper.map(productDetailDto, ProductDetails.class);
             productDetails.setProductId(productId);
@@ -50,10 +50,6 @@ public class ProductDetailsService {
             ProductDetailDto productDetailDtoObj = modelMapper.map(ProductDetailsObj, ProductDetailDto.class);
             return new CustomApiResponse<>(HttpStatus.OK.value(),
                     ApiResponseMessages.PRODUCT_CREATED_SUCCESSFULLY, productDetailDtoObj);
-        } catch(Exception exception){
-            exception.printStackTrace();
-            return null;
-        }
 
     }
 
@@ -124,16 +120,13 @@ public class ProductDetailsService {
      * @return The response containing the list of all products.
      */
     public CustomApiResponse<List<ProductDetailDto>> getAllProducts() {
-        try {
+
         List<ProductDetailDto> productDetailDtoList = productMap.values().stream()
                 .map(productDetails -> modelMapper.map(productDetails, ProductDetailDto.class))
                 .collect(Collectors.toList());
         return new CustomApiResponse<>(HttpStatus.OK.value(),
                 ApiResponseMessages.ALL_PRODUCTS_RETRIEVED, productDetailDtoList);
-        } catch(Exception exception){
-            exception.printStackTrace();
-            return null;
-        }
+
     }
 
     /**
