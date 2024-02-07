@@ -18,7 +18,7 @@ To set up the Ticket Booking Assessment project locally, follow these steps:
 Clone the repository.
 Open the project in your preferred Java IDE.
 Run the application using ./gradlew bootRun.
-Access the Swagger UI for API documentation: Swagger UI
+Access the Swagger UI for API documentation: [Swagger UI](http://localhost:8080/ticket-booking/assessment/swagger-ui/index.html#/)
 
 # API Usage
 To interact with the API-related files and components provided by this repository, refer to the following guidelines:
