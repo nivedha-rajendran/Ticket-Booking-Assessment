@@ -1,4 +1,4 @@
-package com.bookstore.assessment.common;
+package com.assessment.ticket.booking.common;
 
 /**
  * The type Custom api error.
