@@ -1,79 +1,70 @@
-# Bookstore Assessment
+# Ticket Booking Assessment
+# Project Description
+The Ticket Booking Assessment repository is an implementation of a simple ticket booking system. 
+It provides functionalities for purchasing tickets, fetching user receipt details, retrieving a list of tickets by user email, updating user seat allocation details, and deleting user details. The API aims to facilitate common operations related to ticket booking within a system.
 
-## Table of Contents
-- [Project Description](#project-description)
-- [Contents](#contents)
-- [Setup](#setup)
-- [API Usage](#api-usage)
+# Contents
+The "Ticket Booking Assessment" repository includes the following components:
 
+Controllers: Handle various HTTP endpoints for ticket booking operations.
+Services: Implement business logic for ticket booking functionalities.
+Models: Represent entities such as TicketBooking and TicketBookingDto.
+Configuration files: Set up the Spring Boot application.
+Test cases: Ensure the correctness of implemented functionalities.
 
-## Project Description
-The Bookstore Assessment repository is a simple implementation of a product details API for a bookstore. 
-It allows you to create, read, update, and delete product details, as well as retrieve a list of all products. 
-The API also supports applying discounts or taxes to products.
+# Setup
+To set up the Ticket Booking Assessment project locally, follow these steps:
 
-## Contents
-The "Bookstore Assessment" repository contains the following components:
+Clone the repository.
+Open the project in your preferred Java IDE.
+Run the application using ./gradlew bootRun.
+Access the Swagger UI for API documentation: Swagger UI
 
-- Controllers, services for handling product details and applying discounts or taxes.
-- Models representing various entities in the system such as Product and ProductDetailDto.
-- Configuration files for setting up the Spring Boot application.
-- Test cases for the implemented functionalities.
+# API Usage
+To interact with the API-related files and components provided by this repository, refer to the following guidelines:
 
-## Setup
-To set up the Bookstore Assessment project locally, follow these steps:
+Purchase a Ticket: Use the /ticket-booking/ endpoint with a POST request, providing the necessary ticket details in the request body.
 
-1. Clone the repository.
-2. Open the project in your preferred Java IDE.
-3. Run the application using `./gradlew bootRun`.
-4. Access the Swagger UI for API documentation: [Swagger UI](http://localhost:8080/bookstore/assessment/swagger-ui/index.html#/)
+Fetch User Receipt : Utilize the /ticket-booking/user-receipt-detail endpoint with a GET request, providing the ticket ID as a parameter.
 
-## API Usage
-To use the API-related files and components provided by this repository, follow these guidelines:
+Get All Tickets by User MailId: Access the /ticket-booking/ticket-list endpoint with a GET request, providing the user's email as a parameter.
 
+Update Ticket Detail: Make use of the /ticket-booking/update-seat-number/{ticketId} endpoint with a PUT request, providing the ticket ID and new seat number.
 
-### Product Details Controller Payloads
+Delete User : Utilize the /ticket-booking/delete-user endpoint with a DELETE request, providing the user's username as a parameter.
+
+### Ticket Booking Controller Payloads
 
 ### Create Product (POST) 
 
 Payload : RequestBody
 
-{
-  "name": "history",
-  "description": "Indian history",
-  "retailPrice": 250,
-  "quantityAvailable": 20
-}
+        {
+        "from": "mumbai",
+        "to": "chennai",
+        "userName": "rima",
+        "userEmail": "nivedha@",
+        "pricePaid": 20,
+        "section": "b"
+        }
 
+### Fetch Ticket Detail (GET)
 
-### Read Product (GET)
+Payload 
+ticketId  : 1
 
-Payload : productId : 1
+### Fetch Ticket List By MailId (GET)
 
+Payload 
+email : nivedha@gmail.com
 
-### Update Product (PUT)
+### Update Ticket Detail (PUT)
 
-Payload : productId : 1
+Payload 
+ticketId  : 1
+seatNumber : 97
 
-RequestBody :
-{
-  "productId": 1,
-  "name": "geography",
-  "description": "geography",
-  "retailPrice": 250,
-  "quantityAvailable": 25
-}
+### Delete User (DELETE)
 
-### Delete Product (DELETE)
-
-Payload :  productId : 1
-
-### Update Product (PUT) (apply discount or tax)
-
-1 .Discount Payload :
-
-   productId : 1 & discount : 20
-
-2 .Tax Payload :
-
-   productId : 1 & tax : 20 
+Payload 
+userName : Nivedha
